@@ -1,4 +1,4 @@
-ul {
+/* ul {
   margin: 0;
   padding: 0;
 }
@@ -52,7 +52,7 @@ input {
   background-color: #555555;
 }
 
-ul li {
+th tr {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
@@ -89,4 +89,7 @@ ul li.checked::before {
 }
 ul li:hover {
   background: #ddd;
+} */
+.close {
+  cursor: pointer;
 }

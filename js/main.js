@@ -1,38 +1,6 @@
-// Неудачные попытки самостоятельного создания списка
-
-//№1
-// function createNewElement(info) {
-//   let lifirst = document.createElement("li");
-//   let userInput = document.querySelector(".userInput").value;
-//   lifirst.innerHTML =
-//     userInput +
-//     '<span onclick="deleteLastElement()" class="button-delete">X</span>';
-//   ul.append(lifirst);
-// }
-// console.log(lifirst.length);
-
-//№2
-// function createNewElement(info) {
-//   let lifirst = document.createElement("li");
-//   let userInput = document.querySelector(".userInput").value;
-//   lifirst.innerHTML =
-//     userInput +
-//     '<span onclick="deleteLastElement()" class="button-delete">X</span>';
-//   ol.append(lifirst);
-//   lifirst.addEventListener("click", function () {
-//     this.classList.add("cheked");
-//   });
-// }
-// function deleteLastElement() {
-//   document.querySelector("li").remove();
-// }
-
-//список благодаря гуглу
-
-//кнопка закрыть в элементе
-let myNodelist = document.getElementsByTagName("LI");
+let myNodelist = document.getElementsByTagName("tbody");
 let i;
-for (i = 0; i < myNodelist.length; i++) {
+for (i = 1; i < myNodelist.length; i++) {
   let span = document.createElement("span");
   let txt = document.createTextNode("X");
   span.className = "close";
@@ -40,7 +8,6 @@ for (i = 0; i < myNodelist.length; i++) {
   myNodelist[i].appendChild(span);
 }
 
-//функция удаления
 let close = document.getElementsByClassName("close");
 for (i = 0; i < close.length; i++) {
   close.onclick = function () {
@@ -48,40 +15,37 @@ for (i = 0; i < close.length; i++) {
   };
 }
 
-//добавления класа отметки
-let list = document.querySelector("ul");
-list.addEventListener(
-  "click",
-  function (ev) {
-    if (ev.target.tagName === "LI") {
-      ev.target.classList.toggle("checked");
-    }
-  },
-  false
-);
+const titleInput = document.querySelector(".bookTitle");
+const authorInput = document.querySelector(".bookAuthor");
+const isbnInput = document.querySelector(".bookISBN");
 
-//создание нового элемента
-function createNewElement() {
-  let li = document.createElement("li");
-  let userInput = document.querySelector(".userInput").value;
-  let t = document.createTextNode(userInput);
-  li.appendChild(t);
-  if (userInput === "") {
-    alert("Вы должны что-то ввести!");
-  } else {
-    document.querySelector("ul").appendChild(li);
-  }
-  document.querySelector(".userInput").value = "";
+function get() {
+  let bookRow = document.createElement("tr");
+
+  let newTitle = document.createElement("th");
+  newTitle.innerHTML = titleInput.value;
+  bookRow.appendChild(newTitle);
+
+  let newAuthor = document.createElement("th");
+  newAuthor.innerHTML = authorInput.value;
+  bookRow.appendChild(newAuthor);
+
+  let newIsbn = document.createElement("th");
+  newIsbn.innerHTML = isbnInput.value;
+  bookRow.appendChild(newIsbn);
 
   let span = document.createElement("span");
   let txt = document.createTextNode("X");
+
   span.className = "close";
   span.appendChild(txt);
-  li.appendChild(span);
+  bookRow.appendChild(span);
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function () {
       this.parentElement.remove();
     };
   }
+
+  table.appendChild(bookRow);
 }

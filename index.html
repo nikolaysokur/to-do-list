@@ -8,17 +8,28 @@
   </head>
   <body>
     <div class="heading">
-      <h1>Список задач</h1>
+      <h1>Add Book</h1>
       <div class="input-wraper">
-        <input
-          type="text"
-          placeholder="Введите новую задачу.."
-          class="userInput"
-        />
-        <span onclick="createNewElement()" class="button">Записать</span>
+        <p>Title</p>
+        <input type="text" placeholder="" class="bookTitle" />
+        <p>Author</p>
+        <input type="text" placeholder="" class="bookAuthor" />
+        <p>ISBN#</p>
+        <input type="text" placeholder="" class="bookISBN" />
+        <button onclick="get()" class="button">Записать</button>
       </div>
     </div>
-    <ul class="to-do-list" id="ul"></ul>
+    <table class="book_table" id="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
     <script src="../js/main.js"></script>
   </body>
 </html>
